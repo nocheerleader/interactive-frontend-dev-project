@@ -37,3 +37,25 @@ body{
   flex-direction: column;
   animation: overlay-grow 500ms forwards;
 }
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 10px;
+  margin: 50px;
+  justify-content: center;
+  perspective: 500px;
+}
+
+.game-data {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stats {
+  color: #008080;
+    font-size: 2em;
+    font-family: 'Exo', sans-serif;
+}
+
