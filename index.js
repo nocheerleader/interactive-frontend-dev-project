@@ -121,6 +121,19 @@ class MemoryMatch {
         }, 1000);
     }
     
+    // Fisher-Yates Shuffle see README.md for reference details 
+    shuffleCards(cardsArray) {
+        for (let i = cardsArray.length - 1; i > 0; i--) {
+            const randIndex = Math.floor(Math.random() * (i + 1));
+            [cardsArray[i], cardsArray[randIndex]] = [cardsArray[randIndex], cardsArray[i]];
+        }
+        cardsArray = cardsArray.map((card, index) => {
+            card.style.order = index;
+        });
+    }
+    getCardType(card) {
+        return card.getElementsByClassName('card-pair')[0].src;
+    }
     
     canFlipCard(card) {
         return !this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck;
