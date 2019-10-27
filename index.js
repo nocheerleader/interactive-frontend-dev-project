@@ -31,6 +31,25 @@ class AudioController {
     }
 }
 
+class MemoryMatch {
+    constructor(totalTime, cards) {
+        this.cardsArray = cards;
+        this.totalTime = totalTime;
+        this.timeRemaining = totalTime;
+        this.timer = document.getElementById('timer')
+        this.ticker = document.getElementById('flip-count');
+        this.audioController = new AudioController();
+    }
+
+    startGame() {
+        
+        this.cardToCheck = null;
+        
+        }
+        
+    }
+
+
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready)
 } else {
@@ -40,12 +59,12 @@ if (document.readyState == 'loading') {
 function ready() {
     let overlays = Array.from(document.getElementsByClassName('game-text'));
     let cards = Array.from(document.getElementsByClassName('card'));
-    
+    let game = new MemoryMatch(60, cards);
 
     overlays.forEach(overlay => {
         overlay.addEventListener('click', () => {
             overlay.classList.remove('visible');
-            
+            game.startGame();
         });
     });
 
