@@ -158,3 +158,13 @@ html {
   transform: translateY(0)
 }
 
+@media (max-width: 600px) {
+  .card-container {
+    grid-template-columns: repeat(2, auto);
+  }
+
+  .game-data {
+    flex-direction: column;
+    align-items: center;
+  }
+}
