@@ -121,9 +121,11 @@ class MemoryMatch {
         }, 1000);
     }
     
+    
     canFlipCard(card) {
         return !this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck;
     }
+}
 
 
 if (document.readyState == 'loading') {
