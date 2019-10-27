@@ -59,3 +59,102 @@ body{
     font-family: 'Exo', sans-serif;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100vh;
+}
+
+.card {
+  position: relative;
+  height: 175px;
+  width: 125px;
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  border-width: 2px;
+  border-style: solid;
+  transition: transform 500ms ease-in-out;
+}
+
+.card.visible .card-back {
+  transform: rotateY(-180deg);
+}
+
+.card.visible .card-front {
+  transform: rotateY(0)
+}
+
+.card.matched .card-pair {
+  animation: dance 1s linear infinite 500ms;
+}
+
+@keyframes overlay-grow {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 0;
+  }
+  to {
+    background-color: rgba(0, 0, 0, .8);
+    font-size: 10em;
+  }
+}
+
+@keyframes dance {
+  0%, 100%  {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-30deg);
+  }
+  75% {
+    transform: rotate(30deg);
+  }
+}
+
+.card-back {
+  background-color: #FFD700;
+  border-color: #008080;
+}
+
+.card-front {
+  background-color: #FE00F6;
+  border-color: #008080;
+  transform: rotateY(180deg);
+}
+
+.card-pair {
+  transition: transform 100ms ease-in-out;
+  transform: scale(.9);
+}
+
+.card-front:hover .card-pair {
+  transform: scale(1);
+}
+
+.card-face:hover .img {
+  width: 52px;
+  height: 52px;
+}
+
+.cat-face {
+  align-self: flex-start;
+  transform: translateY(35px);
+  transition: transform 100ms ease-in-out;
+}
+
+.card-back:hover .cat-face {
+  transform: translateY(0)
+}
+
