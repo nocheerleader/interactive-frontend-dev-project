@@ -65,7 +65,22 @@ class MemoryMatch {
                 this.gameOver();
         }, 1000);
     }
-    
+    gameOver() {
+        clearInterval(this.countdown);
+        this.audioController.gameOver();
+        document.getElementById('game-over-text').classList.add('visible');
+    }
+    victory() {
+        clearInterval(this.countdown);
+        this.audioController.victory();
+        document.getElementById('winner-text').classList.add('visible');
+    }
+    hideCards() {
+        this.cardsArray.forEach(card => {
+            card.classList.remove('visible');
+            card.classList.remove('matched');
+        });
+    }
     flipCard(card) {
         if(this.canFlipCard(card)) {
             this.audioController.flip();
