@@ -42,11 +42,20 @@ class MemoryMatch {
     }
 
     startGame() {
-        
+        this.totalClicks = 0;
+        this.timeRemaining = this.totalTime;
         this.cardToCheck = null;
-        
-        }
-        
+        this.matchedCards = [];
+        this.busy = true;
+        setTimeout(() => {
+            this.audioController.startMusic();
+            this.shuffleCards(this.cardsArray);
+            this.countdown = this.startCountdown();
+            this.busy = false;
+        }, 500)
+        this.hideCards();
+        this.timer.innerText = this.timeRemaining;
+        this.ticker.innerText = this.totalClicks;
     }
 
 
